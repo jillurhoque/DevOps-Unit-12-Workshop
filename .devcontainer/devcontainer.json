@@ -17,5 +17,8 @@
     ],
     "service": "weatherapp",
     "workspaceFolder": "/workshop",
-    "shutdownAction": "stopCompose"
+    "shutdownAction": "stopCompose",
+    "features": {
+    	"ghcr.io/devcontainers/features/docker-in-docker:2.12.2": {}
+	}
 }
