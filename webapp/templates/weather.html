@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Weather Forecast - Home{% endblock %}
+
+{% block content %}
+    {% if user %}
+        <div class="user-info">
+            <h2>Welcome, {{ user.get('name', 'User') }}!</h2>
+            <p>Displaying weather forecast from the API:</p>
+        </div>
+        
+        {% if weather is mapping and weather.get('error') %}
+            <div class="error">
+                <strong>Error:</strong> {{ weather.get('error') }}
+                {% if weather.get('token_aud') %}
+                    <p><strong>Token aud:</strong> {{ weather.get('token_aud') }}</p>
+                {% endif %}
+                {% if weather.get('token_scp') %}
+                    <p><strong>Token scp:</strong> {{ weather.get('token_scp') }}</p>
+                {% endif %}
+                {% if weather.get('token_roles') %}
+                    <p><strong>Token roles:</strong> {{ weather.get('token_roles') }}</p>
+                {% endif %}
+                {% if weather.get('api_response') %}
+                    <p><strong>API response:</strong> {{ weather.get('api_response') }}</p>
+                {% endif %}
+            </div>
+        {% elif weather is sequence and weather is not string and weather|length > 0 %}
+            <div class="weather-forecast">
+                {% for day in weather %}
+                    <div class="weather-card">
+                        <h3>{{ day.date }}</h3>
+                        <p><strong>Temperature:</strong> {{ day.temperatureC }}°C</p>
+                        <p><strong>Summary:</strong> {{ day.summary }}</p>
+                        <p><strong>High:</strong> {{ day.temperatureF }}°F</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="error">
+                <strong>No weather data available</strong>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="error">
+            <strong>Not logged in</strong><br>
+            Please <a href="{{ url_for('login') }}">login</a> to view the weather forecast.
+        </div>
+    {% endif %}
+{% endblock %}

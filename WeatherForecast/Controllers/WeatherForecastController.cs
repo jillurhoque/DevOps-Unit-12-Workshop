@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace webapi.Controllers
 {
+    // [Authorize(Policy = "ApplicationPolicy")]  // For Part 2 (client credentials flow)
+    [Authorize(Policy = "UserPolicy")]  // For Part 3 (authorization code flow)
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
