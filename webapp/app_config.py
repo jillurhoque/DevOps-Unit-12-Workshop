@@ -5,7 +5,7 @@ Configuration for the Flask OAuth2 app
 # Azure AD configuration
 TENANT_ID = "7d6f97d6-d755-4c10-b763-409cc4b6638f"  # From your app registration
 CLIENT_ID = "ad2f46a9-87ca-4c67-89ec-7c4a6e4b11f6"  # Webapp app registration client ID
-CLIENT_SECRET = "2Tz8Q~VGbKCgnT8Hklo-KuoSlQ3l_0b4JXew5cEm"  # Client secret from webapp app registration
+CLIENT_SECRET = ""                                  # Client secret from webapp app registration
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 
 # Redirect path after login
