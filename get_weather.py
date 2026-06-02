@@ -4,7 +4,7 @@ import requests
 # --- Configuration ---
 TENANT_ID = "7d6f97d6-d755-4c10-b763-409cc4b6638f"
 CLIENT_ID = "7a00fe4e-46ac-4e25-b629-d4f01d9cfe98"   # consumer app (Weather App Consumer)
-CLIENT_SECRET = ""                                # client secret value from app registration
+CLIENT_SECRET = "cDI8Q~2G_1VVBo7P8248ESDl0FQuUX.T1TWggaSx"                 # client secret value from app registration
 API_APP_ID_URI = "api://09ac7cb7-9264-4c73-81dc-c7a51c4b11b9"
 API_BASE_URL = "http://localhost:5000"
 
